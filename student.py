@@ -101,7 +101,7 @@ while True:
         print("Data Deleted Successfully.")
 
     elif choice==7:
-        result=connection.execute("select * from student where Physics_Mark=(select  max(Physics_Mark) from student)")
+        result=connection.execute("select * from student where PhysicsMark=(select  max(PhysicsMark) from student)")
         table = PrettyTable(["ID", "NAME", "ROLL NO", "ADMISSION NUM", "EXAM NAME", "ENGLISH", "PHYSICS", "CHEMISTRY", "BIOLOGY"])
         for i in result:
             table.add_row([i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8]])
@@ -113,20 +113,20 @@ while True:
             print("Total student Count :" ,i[0])
 
     elif choice==9:
-        result = connection.execute("select avg(English_Mark) from student")
+        result = connection.execute("select avg(EnglishMark) from student")
         for i in result:
             print("Average English Mark :", i[0])
 
     elif choice==10:
 
-        result=connection.execute("select * from student where Maths_Mark < (select avg(Maths_Mark) from student)")
+        result=connection.execute("select * from student where Maths_Mark < (select avg(MathsMark) from student)")
         table = PrettyTable(["ID", "NAME", "ROLL NO", "ADMISSION NUM", "EXAM NAME", "ENGLISH", "PHYSICS", "CHEMISTRY", "BIOLOGY"])
         for i in result:
             table.add_row([i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8]])
         print(table)
 
     elif choice==11:
-        result=connection.execute("select * from student where Maths_Mark > (select avg(Maths_Mark) from student)")
+        result=connection.execute("select * from student where Maths_Mark > (select avg(MathsMark) from student)")
         table = PrettyTable(["ID", "NAME", "ROLL NO", "ADMISSION NUM", "EXAM NAME", "ENGLISH", "PHYSICS", "CHEMISTRY", "BIOLOGY"])
         for i in result:
             table.add_row([i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8]])
